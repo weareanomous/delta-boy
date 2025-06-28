@@ -1,9 +1,10 @@
-function scrollToContact() {
-  document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
-}
-
-document.getElementById("contact-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-  alert("Thank you for contacting Delta Boy! We'll get back to you soon.");
-  this.reset();
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : '');
 });
+
+// Set theme from local storage
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark');
+}
